@@ -1,12 +1,17 @@
 package org.example;
 
+import org.example.views.HomeView;
+import org.example.views.LedgerView;
+
 import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class App {
 
     static Scanner appScanner;
-    static UserInterface UI = new UserInterface();
+    //static UserInterface UI = new UserInterface();
+    public static HomeView HomeView = new HomeView();
+    public static LedgerView ledgerView = new LedgerView();
 
     public static void main(String[] args) {
 
@@ -63,18 +68,19 @@ public class App {
         switch (userSelection.toUpperCase()){
             case "D":
                 //System.out.println("Add Deposit");
-                UI.addDeposit();
+                HomeView.addDeposit();
                 displayHomeScreen();
                 break;
 
             case "P":
                 //System.out.println("Make Payment");
-                UI.makePayment();;
+                HomeView.makePayment();;
                 displayHomeScreen();
                 break;
 
             case "L":
-                System.out.println("Open Ledger");
+                //System.out.println("Open Ledger");
+                ledgerView.ledgerMenu();
                 displayHomeScreen();
                 break;
 
